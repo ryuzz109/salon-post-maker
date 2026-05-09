@@ -12,6 +12,18 @@ const dailyLimit = 3;
 const storageKey = "salon-post-maker-usage";
 
 const postTypes = ["集客", "教育", "共感", "ビフォーアフター", "よくある質問", "予約促進"];
+const toolCards = [
+  {
+    title: "今日やることメーカー",
+    description: "大きな目標を、今月・今週・今日やることまで分解するAIツールです。",
+    href: "/goal-breakdown"
+  },
+  {
+    title: "整体師向け30日分SNS投稿カレンダーメーカー",
+    description: "整体師さん向けに、30日分のInstagram/Threads投稿ネタを作るAIツールです。",
+    href: "/seitai-calendar"
+  }
+];
 
 function todayKey() {
   return new Date().toISOString().slice(0, 10);
@@ -140,6 +152,28 @@ export default function Home() {
                 ))}
               </div>
             </div>
+          </div>
+        </div>
+      </section>
+
+      <section className="border-b border-ink/10 bg-linen">
+        <div className="mx-auto max-w-6xl px-5 py-8 sm:px-8">
+          <p className="text-sm font-semibold text-clay">無料AIツール一覧</p>
+          <h2 className="mt-2 text-2xl font-bold text-ink">目的に合わせて使えるツール</h2>
+          <div className="mt-5 grid gap-4 md:grid-cols-2">
+            {toolCards.map((tool) => (
+              <a
+                key={tool.href}
+                href={tool.href}
+                className="rounded-lg border border-ink/10 bg-cream p-5 shadow-soft transition hover:border-moss/35 hover:bg-white"
+              >
+                <h3 className="text-lg font-bold text-ink">{tool.title}</h3>
+                <p className="mt-3 text-sm leading-6 text-ink/70">{tool.description}</p>
+                <span className="mt-4 inline-flex min-h-10 items-center rounded-md border border-moss/30 px-4 text-sm font-bold text-moss">
+                  開く
+                </span>
+              </a>
+            ))}
           </div>
         </div>
       </section>
