@@ -59,7 +59,8 @@ export default function SeitaiCalendarPage() {
   const [error, setError] = useState("");
   const [copiedText, setCopiedText] = useState("");
 
-  const noteUrl = process.env.NEXT_PUBLIC_NOTE_URL || "https://note.com/";
+  const noteUrl =
+    process.env.NEXT_PUBLIC_SALON_NOTE_URL || process.env.NEXT_PUBLIC_NOTE_URL || "https://note.com/";
   const remaining = Math.max(dailyLimit - usage, 0);
   const isLimited = usage >= dailyLimit;
 
