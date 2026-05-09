@@ -14,6 +14,11 @@ const storageKey = "salon-post-maker-usage";
 const postTypes = ["集客", "教育", "共感", "ビフォーアフター", "よくある質問", "予約促進"];
 const toolCards = [
   {
+    title: "家計見直しメーカー",
+    description: "月収や固定費を入力すると、今月の見直しポイントと今日やることを整理するAIツールです。",
+    href: "/budget-checker"
+  },
+  {
     title: "今日やることメーカー",
     description: "大きな目標を、今月・今週・今日やることまで分解するAIツールです。",
     href: "/goal-breakdown"
