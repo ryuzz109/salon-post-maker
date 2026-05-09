@@ -84,7 +84,11 @@ export default function Home() {
       const data = await response.json();
 
       if (!response.ok) {
-        throw new Error(data.error || "生成に失敗しました。");
+        const detail = typeof data.detail === "string" ? data.detail.slice(0, 1000) : "";
+        const message = [data.error || "生成に失敗しました。", detail && `detail: ${detail}`]
+          .filter(Boolean)
+          .join("\n");
+        throw new Error(message);
       }
 
       setIdeas(data);
@@ -187,7 +191,7 @@ export default function Home() {
           </label>
 
           {error && (
-            <div className="mt-5 rounded-md border border-clay/30 bg-clay/10 px-4 py-3 text-sm leading-6 text-ink">
+            <div className="mt-5 whitespace-pre-wrap rounded-md border border-clay/30 bg-clay/10 px-4 py-3 text-sm leading-6 text-ink">
               {error}
             </div>
           )}
